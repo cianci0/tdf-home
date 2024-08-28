@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-function App() {
+import { Grid, ThemeProvider, createMuiTheme } from "@mui/material"
+import Home from "./pages/Home"
+import "./App.css"
+
+const App = () => {
+  const customTheme = createMuiTheme({
+    palette: {
+      background: {
+      default: "#000000"
+      }
+    },
+    typography: {
+      "fontFamily": "Roboto, sans-serif"
+    }
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <BrowserRouter>
+        <Grid container justifyContent="center" alignItems="center">
+          <Routes>
+            <Route path="/" element={<Grid item xs={12}><Home /></Grid>} />
+          </Routes>
+        </Grid>
+      </BrowserRouter>
+    </ThemeProvider>
   );
-}
+};
 
-export default App;
+
+export default App
