@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Grid, ThemeProvider, createMuiTheme } from "@mui/material"
 import Home from "./pages/Home"
 import "./App.css"
-import usePreventZoom from "./pages/usePreventZoom";
 
 const App = () => {
   const customTheme = createMuiTheme({
