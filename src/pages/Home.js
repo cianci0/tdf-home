@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react"
+import { Fragment, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import VideoLooper from "react-video-looper"
 import video from "../assets/White 1920x1080.mp4"
@@ -66,6 +66,23 @@ const Home = () => {
 
   const openModal = () => setModalOpen(true)
   const closeModal = () => setModalOpen(false)
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.scrollY;
+        if (position < 400) {
+            setSelected(-1);
+        }
+        setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
   return (
     <Grid
@@ -207,98 +224,93 @@ const Home = () => {
         sx={{ width: "90vw", height: "40vw", boxShadow: 0, m: 2 }}
         style={{ backgroundColor: "#492B7C" }}
       >
-<Stack
-  direction="row"
-  justifyContent="space-between"
-  alignItems="left"
-  sx={{ width: '100%', height: '100%' }}
->
-  <Box
-    sx={{ width: '20%', height: '100%' }}
-    onMouseEnter={() => setSelected(1)}
-    onMouseLeave={() => setSelected(-1)}
-  >
-    <img
-      src={selected === 1 ? card30 : card3}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        opacity: selected === 1 ? 1 : 0.5,
-        //transform: selected === 1 ? 'scale(1)' : 'scale(0.95)',
-        transition: 'opacity 0.5s ease',
-      }}
-    />
-  </Box>
-  <Box
-    sx={{ width: '20%', height: '100%' }}
-    onMouseEnter={() => setSelected(2)}
-    onMouseLeave={() => setSelected(-1)}
-  >
-    <img
-      src={selected === 2 ? card10 : card1}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        opacity: selected === 2 ? 1 : 0.5,
-        //transform: selected === 2 ? 'scale(1)' : 'scale(0.95)',
-        transition: 'opacity 0.5s ease',
-      }}
-    />
-  </Box>
-  <Box
-    sx={{ width: '20%', height: '100%' }}
-    onMouseEnter={() => setSelected(3)}
-    onMouseLeave={() => setSelected(-1)}
-  >
-    <img
-      src={selected === 3 ? card20 : card2}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        opacity: selected === 3 ? 1 : 0.5,
-        //transform: selected === 3 ? 'scale(1)' : 'scale(0.95)',
-        transition: 'opacity 0.5s ease',
-      }}
-    />
-  </Box>
-  <Box
-    sx={{ width: '20%', height: '100%' }}
-    onMouseEnter={() => setSelected(4)}
-    onMouseLeave={() => setSelected(-1)}
-  >
-    <img
-      src={selected === 4 ? card40 : card4}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        opacity: selected === 4 ? 1 : 0.5,
-        //transform: selected === 4 ? 'scale(1)' : 'scale(0.95)',
-        transition: 'opacity 0.5s ease',
-      }}
-    />
-  </Box>
-  <Box
-    sx={{ width: '20%', height: '100%' }}
-    onMouseEnter={() => setSelected(5)}
-    onMouseLeave={() => setSelected(-1)}
-  >
-    <img
-      src={selected === 5 ? card50 : card5}
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'contain',
-        opacity: selected === 5 ? 1 : 0.5,
-        //transform: selected === 5 ? 'scale(1)' : 'scale(0.95)',
-        transition: 'opacity 0.5s ease',
-      }}
-    />
-  </Box>
-</Stack>
+        <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="left"
+        sx={{ width: '100%', height: '100%' }}
+        >
+        <Box
+            sx={{ width: '20%', height: '100%' }}
+            onMouseEnter={() => setSelected(1)}
+        >
+            <img
+            src={selected === 1 ? card30 : card3}
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                opacity: selected === 1 ? 1 : 0.5,
+                //transform: selected === 1 ? 'scale(1)' : 'scale(0.95)',
+                transition: 'opacity 0.5s ease',
+            }}
+            />
+        </Box>
+        <Box
+            sx={{ width: '20%', height: '100%' }}
+            onMouseEnter={() => setSelected(2)}
+        >
+            <img
+            src={selected === 2 ? card10 : card1}
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                opacity: selected === 2 ? 1 : 0.5,
+                //transform: selected === 2 ? 'scale(1)' : 'scale(0.95)',
+                transition: 'opacity 0.5s ease',
+            }}
+            />
+        </Box>
+        <Box
+            sx={{ width: '20%', height: '100%' }}
+            onMouseEnter={() => setSelected(3)}
+        >
+            <img
+            src={selected === 3 ? card20 : card2}
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                opacity: selected === 3 ? 1 : 0.5,
+                //transform: selected === 3 ? 'scale(1)' : 'scale(0.95)',
+                transition: 'opacity 0.5s ease',
+            }}
+            />
+        </Box>
+        <Box
+            sx={{ width: '20%', height: '100%' }}
+            onMouseEnter={() => setSelected(4)}
+        >
+            <img
+            src={selected === 4 ? card40 : card4}
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                opacity: selected === 4 ? 1 : 0.5,
+                //transform: selected === 4 ? 'scale(1)' : 'scale(0.95)',
+                transition: 'opacity 0.5s ease',
+            }}
+            />
+        </Box>
+        <Box
+            sx={{ width: '20%', height: '100%' }}
+            onMouseEnter={() => setSelected(5)}
+        >
+            <img
+            src={selected === 5 ? card50 : card5}
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                opacity: selected === 5 ? 1 : 0.5,
+                //transform: selected === 5 ? 'scale(1)' : 'scale(0.95)',
+                transition: 'opacity 0.5s ease',
+            }}
+            />
+        </Box>
+        </Stack>
 
       </Grid>
 
