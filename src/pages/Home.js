@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react"
+import { Fragment, useRef, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import VideoLooper from "react-video-looper"
 import video from "../assets/White 1920x1080.mp4"
@@ -38,8 +38,6 @@ import info8 from "../assets/Frame 10.svg"
 import info9 from "../assets/Frame 11.svg"
 import info10 from "../assets/Frame 12.svg"
 
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-
 import {
   Box,
   Button,
@@ -58,31 +56,37 @@ import { ScaleText } from "react-scale-text"
 import BasicModal from "./Modal"
 import { motion } from "framer-motion"
 import ImageCard from "./ImageCard"
+import useScrollSnap from "react-use-scroll-snap"
 
 const Home = () => {
   const [selected, setSelected] = useState(-1)
   const imageMapping = {}
   const [modalOpen, setModalOpen] = useState(false)
+  const scrollRef = useRef(null)
+  const { snapToNext, snapToPrev } = useScrollSnap({
+    ref: scrollRef,
+  })
+  console.log("scrollref", scrollRef)
 
   const openModal = () => setModalOpen(true)
   const closeModal = () => setModalOpen(false)
 
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.scrollY;
-        if (position < 400) {
-            setSelected(-1);
-        }
-        setScrollPosition(position);
-    };
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const handleScroll = () => {
+    const position = window.scrollY
+    if (position < 400) {
+      setSelected(-1)
+    }
+    setScrollPosition(position)
+  }
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
     <Grid
@@ -93,6 +97,7 @@ const Home = () => {
       alignItems="center"
       justifyContent="center"
       rowSpacing={0}
+      ref={scrollRef}
     >
       <Grid
         item
@@ -225,93 +230,92 @@ const Home = () => {
         style={{ backgroundColor: "#492B7C" }}
       >
         <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="left"
-        sx={{ width: '100%', height: '100%' }}
+          direction="row"
+          justifyContent="space-between"
+          alignItems="left"
+          sx={{ width: "100%", height: "100%" }}
         >
-        <Box
-            sx={{ width: '20%', height: '100%' }}
+          <Box
+            sx={{ width: "20%", height: "100%" }}
             onMouseEnter={() => setSelected(1)}
-        >
+          >
             <img
-            src={selected === 1 ? card30 : card3}
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+              src={selected === 1 ? card30 : card3}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
                 opacity: selected === 1 ? 1 : 0.5,
                 //transform: selected === 1 ? 'scale(1)' : 'scale(0.95)',
-                transition: 'opacity 0.5s ease',
-            }}
+                transition: "opacity 0.5s ease",
+              }}
             />
-        </Box>
-        <Box
-            sx={{ width: '20%', height: '100%' }}
+          </Box>
+          <Box
+            sx={{ width: "20%", height: "100%" }}
             onMouseEnter={() => setSelected(2)}
-        >
+          >
             <img
-            src={selected === 2 ? card10 : card1}
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+              src={selected === 2 ? card10 : card1}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
                 opacity: selected === 2 ? 1 : 0.5,
                 //transform: selected === 2 ? 'scale(1)' : 'scale(0.95)',
-                transition: 'opacity 0.5s ease',
-            }}
+                transition: "opacity 0.5s ease",
+              }}
             />
-        </Box>
-        <Box
-            sx={{ width: '20%', height: '100%' }}
+          </Box>
+          <Box
+            sx={{ width: "20%", height: "100%" }}
             onMouseEnter={() => setSelected(3)}
-        >
+          >
             <img
-            src={selected === 3 ? card20 : card2}
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+              src={selected === 3 ? card20 : card2}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
                 opacity: selected === 3 ? 1 : 0.5,
                 //transform: selected === 3 ? 'scale(1)' : 'scale(0.95)',
-                transition: 'opacity 0.5s ease',
-            }}
+                transition: "opacity 0.5s ease",
+              }}
             />
-        </Box>
-        <Box
-            sx={{ width: '20%', height: '100%' }}
+          </Box>
+          <Box
+            sx={{ width: "20%", height: "100%" }}
             onMouseEnter={() => setSelected(4)}
-        >
+          >
             <img
-            src={selected === 4 ? card40 : card4}
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+              src={selected === 4 ? card40 : card4}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
                 opacity: selected === 4 ? 1 : 0.5,
                 //transform: selected === 4 ? 'scale(1)' : 'scale(0.95)',
-                transition: 'opacity 0.5s ease',
-            }}
+                transition: "opacity 0.5s ease",
+              }}
             />
-        </Box>
-        <Box
-            sx={{ width: '20%', height: '100%' }}
+          </Box>
+          <Box
+            sx={{ width: "20%", height: "100%" }}
             onMouseEnter={() => setSelected(5)}
-        >
+          >
             <img
-            src={selected === 5 ? card50 : card5}
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
+              src={selected === 5 ? card50 : card5}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
                 opacity: selected === 5 ? 1 : 0.5,
                 //transform: selected === 5 ? 'scale(1)' : 'scale(0.95)',
-                transition: 'opacity 0.5s ease',
-            }}
+                transition: "opacity 0.5s ease",
+              }}
             />
-        </Box>
+          </Box>
         </Stack>
-
       </Grid>
 
       {selected === 1 && <ImageCard info1={info1} info2={info2} />}
