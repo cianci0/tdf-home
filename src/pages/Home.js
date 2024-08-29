@@ -10,11 +10,17 @@ import text1 from "../assets/Techdataflow centralizes and displays all marketing
 import text2 from "../assets/Techdataflow was born from the need to centralize the access and display of all marketing and technical content about a product or technology for sales purposes, offering customized and easy-to-navigate digital B2B content experiences.  The platform .svg"
 import text3 from "../assets/The platform includes content found in brochures, flyers, data sheets, webinars, blogs, slideshows, infographics, videos, newsletters, presentations, catalogs, case studies, and 3D interactive models etc. .svg"
 import header from "../assets/Imagine a world where all marketing and technical data are seamlessly connected. .svg"
-import card1 from "../assets/Group 1000001819.svg"
-import card2 from "../assets/Group 1000001820.svg"
-import card3 from "../assets/Group 1000001821.svg"
-import card4 from "../assets/Group 1000001822.svg"
-import card5 from "../assets/Group 1000001823.svg"
+import card1 from "../assets/2.svg"
+import card2 from "../assets/3.svg"
+import card3 from "../assets/1.svg"
+import card4 from "../assets/4.svg"
+import card5 from "../assets/5.svg"
+import card10 from "../assets/11.svg"
+import card20 from "../assets/12.svg"
+import card30 from "../assets/15.svg"
+import card40 from "../assets/13.svg"
+import card50 from "../assets/14.svg"
+
 import footer from "../assets/Group 1000001827.svg"
 import phonenumber from "../assets/+1 (2345) 678-90-12.svg"
 import emailaddress from "../assets/support@personal.com.svg"
@@ -201,63 +207,23 @@ const Home = () => {
         sx={{ width: "90vw", height: "40vw", boxShadow: 0, m: 2 }}
         style={{ backgroundColor: "#492B7C" }}
       >
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="left"
-          sx={{ width: "100%", height: "100%" }}
-        >
-          <Box
-            sx={{ width: "20%", height: "100%" }}
-            onMouseEnter={() => setSelected(1)}
-            onMouseLeave={() => setSelected(-1)}
-          >
-            <img
-              src={card3}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Box>
-          <Box
-            sx={{ width: "20%", height: "100%" }}
-            onMouseEnter={() => setSelected(2)}
-            onMouseLeave={() => setSelected(-1)}
-          >
-            <img
-              src={card1}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Box>
-          <Box
-            sx={{ width: "20%", height: "100%" }}
-            onMouseEnter={() => setSelected(3)}
-            onMouseLeave={() => setSelected(-1)}
-          >
-            <img
-              src={card2}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Box>
-          <Box
-            sx={{ width: "20%", height: "100%" }}
-            onMouseEnter={() => setSelected(4)}
-            onMouseLeave={() => setSelected(-1)}
-          >
-            <img
-              src={card4}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Box>
-          <Box
-            sx={{ width: "20%", height: "100%" }}
-            onMouseEnter={() => setSelected(5)}
-            onMouseLeave={() => setSelected(-1)}
-          >
-            <img
-              src={card5}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            />
-          </Box>
-        </Stack>
+            <Stack direction='row' justifyContent='space-between' alignItems='left' sx={{ width: '100%', height: '100%' }}>
+                <Box sx={{ width: '20%', height: '100%' }} onMouseEnter={() => setSelected(1)} onMouseLeave={() => setSelected(-1)}>
+                    <img src={selected === 1 ? card30 : card3} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+                </Box>
+                <Box sx={{ width: '20%', height: '100%' }} onMouseEnter={() => setSelected(2)} onMouseLeave={() => setSelected(-1)}>
+                    <img src={selected === 2 ? card10 : card1} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+                </Box>
+                <Box sx={{ width: '20%', height: '100%' }} onMouseEnter={() => setSelected(3)} onMouseLeave={() => setSelected(-1)}>
+                    <img src={selected === 3 ? card20 : card2} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+                </Box>
+                <Box sx={{ width: '20%', height: '100%' }} onMouseEnter={() => setSelected(4)} onMouseLeave={() => setSelected(-1)}>
+                    <img src={selected === 4 ? card40 : card4} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+                </Box>
+                <Box sx={{ width: '20%', height: '100%' }} onMouseEnter={() => setSelected(5)} onMouseLeave={() => setSelected(-1)}>
+                    <img src={selected === 5 ? card50 : card5} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+                </Box>
+            </Stack>
       </Grid>
 
       {selected === 1 && <ImageCard info1={info1} info2={info2} />}
