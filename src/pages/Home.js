@@ -20,6 +20,9 @@ import card20 from "../assets/12.svg"
 import card30 from "../assets/15.svg"
 import card40 from "../assets/13.svg"
 import card50 from "../assets/14.svg"
+import linkedin from "../assets/Linkedin.svg"
+import productof from "../assets/Group 3576.svg"
+import copyright from "../assets/Group 3585.svg"
 
 import footer from "../assets/Group 1000001827.svg"
 import phonenumber from "../assets/+1 (2345) 678-90-12.svg"
@@ -27,14 +30,14 @@ import emailaddress from "../assets/support@personal.com.svg"
 import company from "../assets/Product (2).svg"
 import link from "../assets/Employee database.svg"
 import demo from "../assets/Product (1).svg"
-import info1 from "../assets/Group 1000001841.svg"
-import info2 from "../assets/Group 1000001841-1.svg"
+import info1 from "../assets/Frame 3.svg"
+import info2 from "../assets/Frame 4.svg"
 import info3 from "../assets/Frame 5.svg"
 import info4 from "../assets/Frame 6.svg"
 import info5 from "../assets/Frame 7.svg"
 import info6 from "../assets/Frame 8.svg"
-import info7 from "../assets/Frame 9.svg"
-import info8 from "../assets/Frame 10.svg"
+import info8 from "../assets/Frame 9.svg"
+import info7 from "../assets/Frame 10.svg"
 import info9 from "../assets/Frame 11.svg"
 import info10 from "../assets/Frame 12.svg"
 
@@ -65,6 +68,8 @@ const Home = () => {
   const scrollRef = useRef(null)
   const { snapToNext, snapToPrev } = useScrollSnap({
     ref: scrollRef,
+    duration: 50,
+    isDirectionEnabled: false
   })
   console.log("scrollref", scrollRef)
 
@@ -154,31 +159,40 @@ const Home = () => {
 
       <Grid
         item
-        sx={{ m: 0, p: 0, width: "100%", height: "55vw", mt: 1 }}
+        sx={{ m: 0, p: 0, width: "100%", height: '55vw', maxHeight: '100vh', mt: 2 }}
         display="flex"
         direction="row"
         alignItems="left"
         justifyContent="space-between"
         rowSpacing={0}
       >
+<Grid
+  item
+  sx={{ width: "40%", height: "100%", ml: "4%", boxShadow: 0 }}
+  style={{ backgroundColor: "#492B7C", position: "relative" }}
+>
+  <div
+    style={{
+      width: "100%",
+      height: "100%",
+      pointerEvents: "none", // Disables interaction with the video
+    }}
+  >
+    <VideoLooper
+      width={"100%"}
+      height={"100%"}
+      source={video}
+      start={0}
+      end={9.5}
+      objectFit={"contain"}
+      style={{ backgroundColor: "#492B7C" }}
+    />
+  </div>
+</Grid>
+
         <Grid
           item
-          sx={{ width: "40%", height: "100%", ml: "4%", boxShadow: 0 }}
-          style={{ backgroundColor: "#492B7C" }}
-        >
-          <VideoLooper
-            width={"100%"}
-            height={"100%"}
-            source={video}
-            start={0}
-            end={9.5}
-            objectFit={"contain"}
-            style={{ backgroundColor: "#492B7C" }}
-          />
-        </Grid>
-        <Grid
-          item
-          sx={{ width: "50vw", height: "40vw", boxShadow: 0, m: 0 }}
+          sx={{ width: "50vw", height: "80%", boxShadow: 0, mt: 1 }}
           display="flex"
           direction="column"
           alignItems="center"
@@ -186,7 +200,7 @@ const Home = () => {
         >
           <Grid
             container
-            sx={{ boxShadow: 0, height: "100%" }}
+            sx={{ boxShadow: 0, height: "80%" }}
             rowSpacing={0}
             justifyContent="space-between"
           >
@@ -212,7 +226,7 @@ const Home = () => {
                 backgroundColor: "#492B7C",
                 width: "40vw",
                 height: "50%",
-                mt: "1vw",
+                mt: "2%",
               }}
             >
               <img
@@ -226,7 +240,7 @@ const Home = () => {
 
       <Grid
         item
-        sx={{ width: "90vw", height: "40vw", boxShadow: 0, m: 2 }}
+        sx={{ width: "90vw", height: "35vw", boxShadow: 0, m: 2, mb: 0, pt: 2.5 }}
         style={{ backgroundColor: "#492B7C" }}
       >
         <Stack
@@ -389,18 +403,20 @@ const Home = () => {
                   boxShadow: 0,
                 }}
               >
-                <div style={{ marginTop: "10vw", textAlign: "center" }}>
+                <div style={{ marginTop: "10vw", textAlign: "left" }}>
                   <img
                     src={company}
-                    style={{ width: "60%", objectFit: "contain" }}
+                    style={{ width: "60%", marginLeft: "2vw", objectFit: "contain" }}
                   />
                 </div>
-                <div style={{ marginTop: "3vw", textAlign: "center" }}>
-                  <img
-                    src={link}
-                    style={{ width: "50%", objectFit: "contain" }}
-                  />
-                </div>
+                <div style={{ marginTop: "2vw", marginLeft: "2vw", textAlign: "left" }}>
+                    <a href="https://www.thepoint.fi" target="_blank" rel="noopener noreferrer">
+                        <img
+                        src={link}
+                        style={{ width: "50%", objectFit: "contain" }}
+                        />
+                    </a>
+                    </div>
               </Card>
             </Stack>
             <Stack item sx={{ width: "25%", height: "100%" }}>
@@ -424,8 +440,20 @@ const Home = () => {
               </Card>
             </Stack>
           </Stack>
-          <Grid item sx={{ width: "100vw", backgroundColor: "#151551", my: 0 }}>
-            <img src={footer} style={{ width: "100%", objectFit: "contain" }} />
+          <Grid item sx={{ width: "100vw", backgroundColor: "#151551", height: '5vw' }}>
+                <Stack direction={'row'} justifyContent={'start'} sx={{width: '100%', height: '100%'}}>
+                    <Stack item alignItems={"start"} justifyContent={"center"} sx={{width: '33.33%'}}>
+                        <a href="https://fi.linkedin.com/in/salvatore-ciancio-7755301a" target="_blank" rel="noopener noreferrer">
+                            <img src={linkedin} style={{height: '3vw', objectFit: 'contain'}}/>
+                        </a>
+                    </Stack>
+                    <Stack item alignItems={"center"} justifyContent={"center"} sx={{width: '33.33%'}}>
+                        <img src={copyright} style={{height: '3.2vw', objectFit: 'contain'}}/>    
+                    </Stack>
+                    <Stack item alignItems={"end"} justifyContent={"center"} sx={{width: '33.34%'}}>
+                        <img src={productof} style={{height: '1.2vw', objectFit: 'contain'}}/>    
+                    </Stack>
+                </Stack>
           </Grid>
         </Grid>
       </Grid>

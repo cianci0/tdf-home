@@ -22,18 +22,18 @@ const ImageCard = ({ info1, info2 }) => {
         display="flex"
         direction="row"
         alignItems="left"
-        justifyContent="space-between"
+        justifyContent="space-around"
         rowSpacing={0}
       >
         <Grid
           item
-          sx={{ width: "46%", height: "100%", boxShadow: 0, ml: "4%" }}
+          sx={{ width: "42%", height: "100%", boxShadow: 0, ml: "4%" }}
         >
           <img src={info1} style={{ width: "100%", objectFit: "contain" }} />
         </Grid>
         <Grid
           item
-          sx={{ width: "46%", height: "100%", boxShadow: 0, mr: "4%" }}
+          sx={{ width: "42%", height: "100%", boxShadow: 0, mr: "4%" }}
         >
           <img src={info2} style={{ width: "100%", objectFit: "contain" }} />
         </Grid>
