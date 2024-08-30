@@ -1,15 +1,11 @@
-import { Fragment, useRef, useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { useRef, useState, useEffect } from "react"
 import VideoLooper from "react-video-looper"
 import video from "../assets/White 1920x1080.mp4"
 import birds from "../assets/Group 1000001828 (4).png"
-import screensaver from "../assets/Rectangle 35.png"
 import logo from "../assets/Rectangle 32.png"
-import people from "../assets/Rectangle 1.jpg"
-import text1 from "../assets/Techdataflow centralizes and displays all marketing and technical information about a product or technology across different media within a single window in any browser. .svg"
-import text2 from "../assets/Techdataflow was born from the need to centralize the access and display of all marketing and technical content about a product or technology for sales purposes, offering customized and easy-to-navigate digital B2B content experiences.  The platform .svg"
-import text3 from "../assets/The platform includes content found in brochures, flyers, data sheets, webinars, blogs, slideshows, infographics, videos, newsletters, presentations, catalogs, case studies, and 3D interactive models etc. .svg"
-import header from "../assets/Imagine a world where all marketing and technical data are seamlessly connected. .svg"
+import text1 from "../assets/centralize.svg"
+import text2 from "../assets/need.svg"
+import header from "../assets/imagine.svg"
 import card1 from "../assets/2.svg"
 import card2 from "../assets/3.svg"
 import card3 from "../assets/1.svg"
@@ -24,12 +20,11 @@ import linkedin from "../assets/Linkedin.svg"
 import productof from "../assets/Group 3576.svg"
 import copyright from "../assets/Group 3585.svg"
 
-import footer from "../assets/Group 1000001827.svg"
 import phonenumber from "../assets/+1 (2345) 678-90-12.svg"
 import emailaddress from "../assets/support@personal.com.svg"
 import company from "../assets/Product (2).svg"
 import link from "../assets/Employee database.svg"
-import demo from "../assets/Product (1).svg"
+import demo from "../assets/Product (2) (1).svg"
 import info1 from "../assets/Frame 3.svg"
 import info2 from "../assets/Frame 4.svg"
 import info3 from "../assets/Frame 5.svg"
@@ -43,28 +38,17 @@ import info10 from "../assets/Frame 12.svg"
 
 import {
   Box,
-  Button,
   Card,
-  CardActions,
-  CardContent,
-  CardHeader,
   Grid,
-  Typography,
   Stack,
-  TextField,
-  IconButton,
-  InputAdornment,
 } from "@mui/material"
-import { ScaleText } from "react-scale-text"
-import BasicModal from "./Modal"
-import { motion } from "framer-motion"
+// import BasicModal from "./Modal"
 import ImageCard from "./ImageCard"
 import useScrollSnap from "react-use-scroll-snap"
 
 const Home = () => {
   const [selected, setSelected] = useState(-1)
-  const imageMapping = {}
-  const [modalOpen, setModalOpen] = useState(false)
+  // const [modalOpen, setModalOpen] = useState(false)
   const scrollRef = useRef(null)
   const { snapToNext, snapToPrev } = useScrollSnap({
     ref: scrollRef,
@@ -73,8 +57,8 @@ const Home = () => {
   })
   console.log("scrollref", scrollRef)
 
-  const openModal = () => setModalOpen(true)
-  const closeModal = () => setModalOpen(false)
+  // const openModal = () => setModalOpen(true)
+  // const closeModal = () => setModalOpen(false)
 
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
@@ -175,7 +159,7 @@ const Home = () => {
     style={{
       width: "100%",
       height: "100%",
-      pointerEvents: "none", // Disables interaction with the video
+      pointerEvents: "none",
     }}
   >
     <VideoLooper
@@ -429,7 +413,7 @@ const Home = () => {
                 }}
               >
                 <div
-                  onClick={openModal}
+                  // onClick={openModal}
                   style={{ marginTop: "10vw", textAlign: "center" }}
                 >
                   <img
@@ -457,7 +441,6 @@ const Home = () => {
           </Grid>
         </Grid>
       </Grid>
-      <BasicModal open={modalOpen} onClose={closeModal} />
     </Grid>
   )
 }
