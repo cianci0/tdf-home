@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react"
+import useWindowDimensions from "./useWindowDimensions"
 import VideoLooper from "react-video-looper"
-import video from "../assets/White 1920x1080.mp4"
+import video from "../assets/Animation transparent.mp4"
 import birds from "../assets/Group 1000001828 (4).png"
 import logo from "../assets/Rectangle 32.png"
 import text1 from "../assets/centralize.svg"
@@ -49,6 +50,7 @@ import useScrollSnap from "react-use-scroll-snap"
 const Home = () => {
   const [selected, setSelected] = useState(-1)
   // const [modalOpen, setModalOpen] = useState(false)
+  const { height, width } = useWindowDimensions();
   const scrollRef = useRef(null)
   const { snapToNext, snapToPrev } = useScrollSnap({
     ref: scrollRef,
@@ -63,8 +65,8 @@ const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
     const position = window.scrollY
-    if (position < 400) {
-      setSelected(-1)
+    if (position < 400 && height > 700) {
+        setSelected(-1)
     }
     setScrollPosition(position)
   }
@@ -150,33 +152,33 @@ const Home = () => {
         justifyContent="space-between"
         rowSpacing={0}
       >
-<Grid
-  item
-  sx={{ width: "40%", height: "100%", ml: "4%", boxShadow: 0 }}
-  style={{ backgroundColor: "#492B7C", position: "relative" }}
->
-  <div
-    style={{
-      width: "100%",
-      height: "100%",
-      pointerEvents: "none",
-    }}
-  >
-    <VideoLooper
-      width={"100%"}
-      height={"100%"}
-      source={video}
-      start={0}
-      end={9.5}
-      objectFit={"contain"}
-      style={{ backgroundColor: "#492B7C" }}
-    />
-  </div>
-</Grid>
+        <Grid
+        item
+        sx={{ width: "40%", height: "55vw", ml: "4%", boxShadow: 0, maxHeight: '100vw' }}
+        style={{ backgroundColor: "#492B7C", position: "relative" }}
+        >
+        <div
+            style={{
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+            }}
+        >
+            <VideoLooper
+            width={"100%"}
+            height={"100%"}
+            source={video}
+            start={0}
+            end={9.5}
+            objectFit={"contain"}
+            style={{ backgroundColor: "#492B7C" }}
+            />
+        </div>
+        </Grid>
 
         <Grid
           item
-          sx={{ width: "50vw", height: "80%", boxShadow: 0, mt: 1 }}
+          sx={{ width: "50vw", height: "50vw", maxHeight: '100vh', boxShadow: 0, mt: 1 }}
           display="flex"
           direction="column"
           alignItems="center"
@@ -184,7 +186,7 @@ const Home = () => {
         >
           <Grid
             container
-            sx={{ boxShadow: 0, height: "80%" }}
+            sx={{ boxShadow: 0, height: "70%" }}
             rowSpacing={0}
             justifyContent="space-between"
           >
@@ -192,7 +194,7 @@ const Home = () => {
               item
               sx={{
                 backgroundColor: "#492B7C",
-                width: "40vw",
+                width: "80%",
                 height: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -208,9 +210,9 @@ const Home = () => {
               item
               sx={{
                 backgroundColor: "#492B7C",
-                width: "40vw",
+                width: "80%",
                 height: "50%",
-                mt: "2%",
+                mt: "1%",
               }}
             >
               <img
@@ -320,7 +322,7 @@ const Home = () => {
 
       {selected === 2 && <ImageCard info1={info4} info2={info3} />}
 
-      {selected === 3 && <ImageCard info1={info6} info2={info5} />}
+      {selected === 3 && <ImageCard info1={info5} info2={info6} />}
 
       {selected === 4 && <ImageCard info1={info7} info2={info8} />}
 
