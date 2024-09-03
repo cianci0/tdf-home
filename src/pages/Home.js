@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react"
 import useWindowDimensions from "./useWindowDimensions"
 import VideoLooper from "react-video-looper"
-import video from "../assets/White 1920x1080.mp4"
+import video from "../assets/animation2.mp4"
 import birds from "../assets/Group 1000001828 (4).png"
 import logo from "../assets/Rectangle 32.png"
 import text1 from "../assets/centralize.svg"
