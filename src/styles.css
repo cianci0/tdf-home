@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, .background-section, video {
+    background-color: #492B7C;
+    print-color-adjust: exact;
+  }
+  
+  img {
+    print-color-adjust: exact;
+  }
