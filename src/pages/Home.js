@@ -38,8 +38,6 @@ import info7 from "../assets/Frame 10.svg"
 import info9 from "../assets/Frame 11.svg"
 import info10 from "../assets/Frame 12.svg"
 
-//import "./Home.css"
-
 import {
   Box,
   Card,
@@ -87,8 +85,8 @@ const Home = () => {
       container
       sx={{ m: -1, p: 0, width: "100vw", backgroundColor: 'transparent',    
         minHeight: "100vh",
-        backgroundImage: {bgimage},
-        backgroundSize: "cover",
+        backgroundImage: `url(${bgimage})`,
+        backgroundSize: "cover", // or 'contain' depending on your preference
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
