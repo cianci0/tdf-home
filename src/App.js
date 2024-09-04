@@ -8,7 +8,7 @@ const App = () => {
   const customTheme = createMuiTheme({
     palette: {
       background: {
-      default: "#000000"
+      default: '#000000'
       }
     },
     typography: {

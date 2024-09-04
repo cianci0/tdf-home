@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react"
 import useWindowDimensions from "./useWindowDimensions"
 import VideoLooper from "react-video-looper"
-import video from "../assets/animation2.mp4"
+import video from "../assets/White 1920x1080.mp4"
 import birds from "../assets/Group 1000001828 (4).png"
-import logo from "../assets/Rectangle 32.png"
+import logo from "../assets/Rectangle 32.svg"
 import text1 from "../assets/centralize.svg"
 import text2 from "../assets/need.svg"
 import header from "../assets/imagine.svg"
@@ -20,6 +20,7 @@ import card50 from "../assets/14.svg"
 import linkedin from "../assets/Linkedin.svg"
 import productof from "../assets/Group 3576.svg"
 import copyright from "../assets/Group 3585.svg"
+import bgimage from "../assets/bgimage.png"
 
 import phonenumber from "../assets/+1 (2345) 678-90-12.svg"
 import emailaddress from "../assets/support@personal.com.svg"
@@ -80,32 +81,42 @@ const Home = () => {
   }, [])
 
   return (
-    <Grid
-      container
-      sx={{ m: -1, p: 0, width: "100vw" }}
-      display="flex"
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      rowSpacing={0}
-      ref={scrollRef}
-    >
+  <Grid
+    container
+    sx={{
+      m: -1,
+      p: 0,
+      width: "100vw",
+      minHeight: "100vh",
+      backgroundImage: {bgimage},
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}
+    display="flex"
+    direction="column"
+    alignItems="center"
+    justifyContent="center"
+    rowSpacing={0}
+    ref={scrollRef}
+  >
       <Grid
         item
-        className="background-section"
         sx={{
           width: "100vw",
           height: "30vw",
           boxShadow: 0,
           mt: 0,
-          backgroundColor: "#492B7C",
+          backgroundColor: 'transparent',
         }}
       >
         <Stack
           direction="row"
           justifyContent="start"
           alignItems="start"
-          sx={{ width: "100%", height: "100%", backgroundColor: "#492B7C" }}
+          sx={{ width: "100%", height: "100%", 
+            backgroundColor: 'transparent' 
+            }}
         >
           <img
             src={birds}
@@ -156,7 +167,7 @@ const Home = () => {
         <Grid
         item
         sx={{ width: "40%", height: "55vw", ml: "4%", boxShadow: 0, maxHeight: '100vw' }}
-        style={{ backgroundColor: "#492B7C", position: "relative" }}
+        style={{ backgroundColor: 'transparent', position: "relative" }}
         >
         <div
             style={{
@@ -172,7 +183,7 @@ const Home = () => {
             start={0}
             end={9.5}
             objectFit={"contain"}
-            style={{ backgroundColor: "#492B7C" }}
+            style={{ backgroundColor: 'transparent' }}
             />
         </div>
         </Grid>
@@ -183,7 +194,7 @@ const Home = () => {
           display="flex"
           direction="column"
           alignItems="center"
-          style={{ backgroundColor: "#492B7C" }}
+          style={{ backgroundColor: 'transparent' }}
         >
           <Grid
             container
@@ -194,7 +205,7 @@ const Home = () => {
             <Grid
               item
               sx={{
-                backgroundColor: "#492B7C",
+                backgroundColor: 'transparent',
                 width: "80%",
                 height: "50%",
                 display: "flex",
@@ -210,7 +221,7 @@ const Home = () => {
             <Grid
               item
               sx={{
-                backgroundColor: "#492B7C",
+                backgroundColor: 'transparent',
                 width: "80%",
                 height: "50%",
                 mt: "1%",
@@ -228,7 +239,7 @@ const Home = () => {
       <Grid
         item
         sx={{ width: "90vw", height: "35vw", boxShadow: 0, m: 2, mb: 0, pt: 2.5 }}
-        style={{ backgroundColor: "#492B7C" }}
+        style={{ backgroundColor: 'transparent' }}
       >
         <Stack
           direction="row"

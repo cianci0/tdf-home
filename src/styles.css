@@ -5,10 +5,5 @@
   }
 
   body, .background-section, video {
-    background-color: #492B7C;
-    print-color-adjust: exact;
-  }
-  
-  img {
-    print-color-adjust: exact;
+    background-color: transparent;
   }
