@@ -5,19 +5,8 @@ import Home from "./pages/Home"
 import "./App.css"
 
 const App = () => {
-  const customTheme = createMuiTheme({
-    palette: {
-      background: {
-      default: '#000000'
-      }
-    },
-    typography: {
-      "fontFamily": "Roboto, sans-serif"
-    }
-  })
 
   return (
-    <ThemeProvider theme={customTheme}>
       <BrowserRouter>
         <Grid container justifyContent="center" alignItems="center">
           <Routes>
@@ -25,7 +14,6 @@ const App = () => {
           </Routes>
         </Grid>
       </BrowserRouter>
-    </ThemeProvider>
   );
 };
 

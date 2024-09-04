@@ -38,6 +38,8 @@ import info7 from "../assets/Frame 10.svg"
 import info9 from "../assets/Frame 11.svg"
 import info10 from "../assets/Frame 12.svg"
 
+//import "./Home.css"
+
 import {
   Box,
   Card,
@@ -81,25 +83,22 @@ const Home = () => {
   }, [])
 
   return (
-  <Grid
-    container
-    sx={{
-      m: -1,
-      p: 0,
-      width: "100vw",
-      minHeight: "100vh",
-      backgroundImage: {bgimage},
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}
-    display="flex"
-    direction="column"
-    alignItems="center"
-    justifyContent="center"
-    rowSpacing={0}
-    ref={scrollRef}
-  >
+    <Grid
+      container
+      sx={{ m: -1, p: 0, width: "100vw", backgroundColor: 'transparent',    
+        minHeight: "100vh",
+        backgroundImage: {bgimage},
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+      display="flex"
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      rowSpacing={0}
+      ref={scrollRef}
+    >
       <Grid
         item
         sx={{
@@ -183,7 +182,7 @@ const Home = () => {
             start={0}
             end={9.5}
             objectFit={"contain"}
-            style={{ backgroundColor: 'transparent' }}
+            style={{ backgroundColor: "transparent" }}
             />
         </div>
         </Grid>
@@ -194,7 +193,7 @@ const Home = () => {
           display="flex"
           direction="column"
           alignItems="center"
-          style={{ backgroundColor: 'transparent' }}
+          style={{ backgroundColor: "transparent" }}
         >
           <Grid
             container
@@ -205,7 +204,7 @@ const Home = () => {
             <Grid
               item
               sx={{
-                backgroundColor: 'transparent',
+                backgroundColor: "transparent",
                 width: "80%",
                 height: "50%",
                 display: "flex",
@@ -221,7 +220,7 @@ const Home = () => {
             <Grid
               item
               sx={{
-                backgroundColor: 'transparent',
+                backgroundColor: "transparent",
                 width: "80%",
                 height: "50%",
                 mt: "1%",
@@ -239,7 +238,7 @@ const Home = () => {
       <Grid
         item
         sx={{ width: "90vw", height: "35vw", boxShadow: 0, m: 2, mb: 0, pt: 2.5 }}
-        style={{ backgroundColor: 'transparent' }}
+        style={{ backgroundColor: "transparent" }}
       >
         <Stack
           direction="row"
