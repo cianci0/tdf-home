@@ -1,5 +1,3 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-
 import { Grid } from "@mui/material"
 import Home from "./pages/Home"
 import "./App.css"
@@ -7,13 +5,9 @@ import "./App.css"
 const App = () => {
 
   return (
-      <BrowserRouter>
         <Grid container justifyContent="center" alignItems="center">
-          <Routes>
-            <Route path="/" element={<Grid item xs={12}><Home/></Grid>} />
-          </Routes>
+            <Grid item xs={12}><Home/></Grid>
         </Grid>
-      </BrowserRouter>
   );
 };
 

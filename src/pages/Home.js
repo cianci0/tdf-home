@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import useWindowDimensions from "./useWindowDimensions"
-import VideoLooper from "react-video-looper"
-import video from "../assets/White 1920x1080.mp4"
+import Animation from "./Animation"
 import birds from "../assets/Group 1000001828 (4).png"
 import logo from "../assets/Rectangle 32.svg"
 import text1 from "../assets/centralize.svg"
@@ -20,8 +19,6 @@ import card50 from "../assets/14.svg"
 import linkedin from "../assets/Linkedin.svg"
 import productof from "../assets/Group 3576.svg"
 import copyright from "../assets/Group 3585.svg"
-import bgimage from "../assets/bgimage.png"
-
 import phonenumber from "../assets/+1 (2345) 678-90-12.svg"
 import emailaddress from "../assets/support@personal.com.svg"
 import company from "../assets/Product (2).svg"
@@ -44,24 +41,21 @@ import {
   Grid,
   Stack,
 } from "@mui/material"
-// import BasicModal from "./Modal"
-import ImageCard from "./ImageCard"
 import useScrollSnap from "react-use-scroll-snap"
+import ImageCard from "./ImageCard"
 
 const Home = () => {
   const [selected, setSelected] = useState(-1)
-  // const [modalOpen, setModalOpen] = useState(false)
+  const [isSnapEnabled, setIsSnapEnabled] = useState(false);
+  const [tick, setTick] = useState(0) 
   const { height, width } = useWindowDimensions();
   const scrollRef = useRef(null)
+
   const { snapToNext, snapToPrev } = useScrollSnap({
     ref: scrollRef,
     duration: 50,
-    isDirectionEnabled: false
+    isDirectionEnabled: true
   })
-  console.log("scrollref", scrollRef)
-
-  // const openModal = () => setModalOpen(true)
-  // const closeModal = () => setModalOpen(false)
 
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
@@ -80,22 +74,34 @@ const Home = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTick(prevTick => prevTick + 1); 
+    }, 10000);     
+
+    return () => clearInterval(intervalId); 
+  }, []);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setIsSnapEnabled(true);
+    }, 2000);
+  }, []);
+
   return (
     <Grid
       container
-      sx={{ m: -1, p: 0, width: "100vw", backgroundColor: 'transparent',    
-        minHeight: "100vh",
-        backgroundImage: `url(${bgimage})`,
-        backgroundSize: "cover", // or 'contain' depending on your preference
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+      ref={isSnapEnabled ? scrollRef : null}
+      sx={{
+        m: 0, p: 0, width: "100vw", backgroundColor: "#492B7C", minHeight: "100vh",
+        scrollSnapType: isSnapEnabled ? "y mandatory" : "none",
+        overflowY: "scroll",
       }}
       display="flex"
       direction="column"
       alignItems="center"
       justifyContent="center"
       rowSpacing={0}
-      ref={scrollRef}
     >
       <Grid
         item
@@ -154,7 +160,7 @@ const Home = () => {
 
       <Grid
         item
-        sx={{ m: 0, p: 0, width: "100%", height: '55vw', maxHeight: '100vh', mt: 2 }}
+        sx={{ m: 0, p: 0, width: "100%", height: '55vw', maxHeight: '100vw', mt: 2 }}
         display="flex"
         direction="row"
         alignItems="left"
@@ -168,26 +174,21 @@ const Home = () => {
         >
         <div
             style={{
+            display: 'flex',
             width: "100%",
             height: "100%",
             pointerEvents: "none",
+            alignItems: 'center',
+            justifyContent: 'center'
             }}
         >
-            <VideoLooper
-            width={"100%"}
-            height={"100%"}
-            source={video}
-            start={0}
-            end={9.5}
-            objectFit={"contain"}
-            style={{ backgroundColor: "transparent" }}
-            />
+          <Animation key={tick} />
         </div>
         </Grid>
 
         <Grid
           item
-          sx={{ width: "50vw", height: "50vw", maxHeight: '100vh', boxShadow: 0, mt: 1 }}
+          sx={{ width: "50vw", height: "50vw", maxHeight: '100vw', boxShadow: 0, mt: 1 }}
           display="flex"
           direction="column"
           alignItems="center"
@@ -195,7 +196,7 @@ const Home = () => {
         >
           <Grid
             container
-            sx={{ boxShadow: 0, height: "70%" }}
+            sx={{ boxShadow: 0, height: "35vw" }}
             rowSpacing={0}
             justifyContent="space-between"
           >
@@ -235,7 +236,7 @@ const Home = () => {
 
       <Grid
         item
-        sx={{ width: "90vw", height: "35vw", boxShadow: 0, m: 2, mb: 0, pt: 2.5 }}
+        sx={{ width: "90vw", height: "35vw", boxShadow: 0, m: 2, mb: 0, pt: 2 }}
         style={{ backgroundColor: "transparent" }}
       >
         <Stack
@@ -255,7 +256,6 @@ const Home = () => {
                 height: "100%",
                 objectFit: "contain",
                 opacity: selected === 1 ? 1 : 0.5,
-                //transform: selected === 1 ? 'scale(1)' : 'scale(0.95)',
                 transition: "opacity 0.5s ease",
               }}
             />
@@ -271,7 +271,6 @@ const Home = () => {
                 height: "100%",
                 objectFit: "contain",
                 opacity: selected === 2 ? 1 : 0.5,
-                //transform: selected === 2 ? 'scale(1)' : 'scale(0.95)',
                 transition: "opacity 0.5s ease",
               }}
             />
@@ -287,7 +286,6 @@ const Home = () => {
                 height: "100%",
                 objectFit: "contain",
                 opacity: selected === 3 ? 1 : 0.5,
-                //transform: selected === 3 ? 'scale(1)' : 'scale(0.95)',
                 transition: "opacity 0.5s ease",
               }}
             />
@@ -303,7 +301,6 @@ const Home = () => {
                 height: "100%",
                 objectFit: "contain",
                 opacity: selected === 4 ? 1 : 0.5,
-                //transform: selected === 4 ? 'scale(1)' : 'scale(0.95)',
                 transition: "opacity 0.5s ease",
               }}
             />
@@ -319,7 +316,6 @@ const Home = () => {
                 height: "100%",
                 objectFit: "contain",
                 opacity: selected === 5 ? 1 : 0.5,
-                //transform: selected === 5 ? 'scale(1)' : 'scale(0.95)',
                 transition: "opacity 0.5s ease",
               }}
             />
@@ -328,13 +324,9 @@ const Home = () => {
       </Grid>
 
       {selected === 1 && <ImageCard info1={info1} info2={info2} />}
-
       {selected === 2 && <ImageCard info1={info4} info2={info3} />}
-
       {selected === 3 && <ImageCard info1={info5} info2={info6} />}
-
       {selected === 4 && <ImageCard info1={info7} info2={info8} />}
-
       {selected === 5 && <ImageCard info1={info9} info2={info10} />}
 
       <Grid
@@ -411,7 +403,7 @@ const Home = () => {
                         style={{ width: "50%", objectFit: "contain" }}
                         />
                     </a>
-                    </div>
+                </div>
               </Card>
             </Stack>
             <Stack item sx={{ width: "25%", height: "100%" }}>
@@ -424,7 +416,6 @@ const Home = () => {
                 }}
               >
                 <div
-                  // onClick={openModal}
                   style={{ marginTop: "10vw", textAlign: "center" }}
                 >
                   <img

@@ -1,5 +1,6 @@
 {
   "name": "techdataflow-website",
+  "homepage": "https://techdataflow.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

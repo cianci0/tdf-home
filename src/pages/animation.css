@@ -1,0 +1,144 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes stayOut {
+    from { opacity: 0; }
+    to { opacity: 0; }
+}
+
+@keyframes stayIn {
+    from {opacity: 1;}
+    to {opacity: 1;}
+}
+
+.arrow1, .arrow2, .arrow3, .arrow4, .eye1, .eye2, .ear, .hand {
+    position: absolute;
+    animation-duration: 1s, 3s, 2.5s, 1s; 
+    animation-timing-function: ease-in, ease-in, ease-in-out, ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0; 
+    }
+
+.arrow1 {
+    top: 24%;
+    left: 50%;
+    animation-name: fadeIn, none, moveArrow1, fadeOut;
+    animation-delay: 0s, 1s, 4s, 8.8s;
+}
+
+.arrow2 {
+    top: 39%;
+    left: 50%;
+    animation-name: fadeIn, none, moveArrow2, fadeOut;
+    animation-delay: 0s, 1s, 4s, 8.8s;
+}
+
+.arrow3 {
+    top: 54%;
+    left: 50%;
+    animation-name: fadeIn, none, moveArrow3, fadeOut;
+    animation-delay: 0s, 1s, 4s, 8.8s;
+}
+
+.arrow4 {
+    top: 69%;
+    left: 50%;
+    animation-name: fadeIn, none, moveArrow4, fadeOut;
+    animation-delay: 0s, 1s, 4s, 8.8s;
+}
+
+.eye1 {
+    top: 24%;
+    left: 62%;
+    animation-name: fadeIn, none, moveEye1, fadeOut;
+    animation-delay: 0s, 1s, 4s, 9s;
+}
+
+.eye2 {
+    top: 39%;
+    left: 62%;
+    animation-name: fadeIn, none, moveEye2, fadeOut;
+    animation-delay: 0s, 1s, 4s, 9s;
+}
+
+.ear {
+    top: 54%;
+    left: 62.9%;
+    animation-name: fadeIn, none, moveEar, fadeOut;
+    animation-delay: 0s, 1s, 4s, 9s;
+}
+
+.hand {
+    top: 69%;
+    left: 62%;
+    animation-name: fadeIn, none, moveHand, fadeOut;
+    animation-delay: 0s, 1s, 4s, 9s;
+}
+
+.frame1 {
+    position: absolute;
+    top: 23%;
+    left: 0%;
+    opacity: 0;
+    animation-name: fadeIn, stayIn, fadeOut, stayOut;
+    animation-duration: 2s, 3s, 1s, 4.2s;
+    animation-delay: 0s, 1s, 4s, 5s;
+}
+
+.frame2 {
+    position: absolute;
+    top: 33%;
+    left: 9%;
+    opacity: 0;
+    animation-name: fadeIn, stayIn, fadeOut;
+    animation-duration: 1s, 2.5s, 1s;
+    animation-delay: 6.5s, 7.5s, 9s;
+}
+
+@keyframes moveArrow1 {
+    from { top: 24%; left: 50%; }
+    to { top: 45%; left: 70%; }
+}
+
+@keyframes moveArrow2 {
+    from { top: 39%; left: 50%; }
+    to { top: 45%; left: 70%; }
+}
+
+@keyframes moveArrow3 {
+    from { top: 54%; left: 50%; }
+    to { top: 45%; left: 70%; }
+}
+
+@keyframes moveArrow4 {
+    from { top: 69%; left: 50%; }
+    to { top: 45%; left: 70%; }
+}
+
+@keyframes moveEye1 {
+    from { top: 24%; left: 62%; }
+    to { top: 35%; left: 79%; }
+}
+
+@keyframes moveEye2 {
+    from { top: 39%; left: 62%; }
+    to { top: 35%; left: 79%; }
+}
+
+@keyframes moveEar {
+    from { top: 54%; left: 62.9%; }
+    to { top: 45%; left: 79.9%; }
+}
+
+@keyframes moveHand {
+    from { top: 69%; left: 62%; }
+    to { top: 55%; left: 79%; }
+}
